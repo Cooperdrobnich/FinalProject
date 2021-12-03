@@ -10,14 +10,32 @@ from bs4 import BeautifulSoup
 
 """This file will create a database called 'LebronAndMJStats.db' with all statistics from MJ and Lebron's """
 
-def get_season():
-    urls = ['https://www.basketball-reference.com/players/j/jamesle01.html','https://www.basketball-reference.com/players/j/jordami01.html']
-    seasons = []
+def get_season_lebron():
+    urls = ['https://www.basketball-reference.com/players/j/jamesle01.html']
+    seasons_lebron = []
     for url in urls:
         soup = BeautifulSoup(requests.get(url).text, 'html.parser')
         table = soup.find('table', {'id':'totals'})
         rows = table.find_all('tr')
+        for row in rows[1:19]:
+            season = row.find_all('th',{'data-stat':'season'})
+            for i in season:
+                year = i.find('a').text
+                print(year)
 
+def get_season_mj():
+    urls = ['https://www.basketball-reference.com/players/j/jordami01.html']
+    seasons_mj = []
+    for url in urls:
+        soup = BeautifulSoup(requests.get(url).text, 'html.parser')
+        table = soup.find('table', {'id':'totals'})
+        rows = table.find_all('tr')
+        for row in rows[1:15]:
+            season = row.find_all('th',{'data-stat':'season'})
+            for i in season:
+                year = i.find('a').text
+                print(year)
+                
 
 
 def create_database(db):
@@ -27,4 +45,5 @@ def create_database(db):
     return cur, conn
 
 if __name__ == '__main__':
-    season_lst = get_season()
+    lebron_season_lst = get_season_lebron()
+    mj_season_lst = get_season_mj()
