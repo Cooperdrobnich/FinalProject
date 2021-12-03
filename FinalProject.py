@@ -61,6 +61,17 @@ def get_points_lebron():
             points_lebron.append(points[0].text)
     return points_lebron
 
+def get_fgm_lebron():
+    count = 2003
+    url = f'https://www.balldontlie.io/api/v1/season_averages?season={count}&player_ids[]=237'
+    response = requests.get(url)
+    data = response.json()
+    for i in range(10):
+        print(data)
+        count += 1
+
+    
+
 #=================MJ FUNCTIONS=================#
 
 def get_season_mj():
@@ -128,3 +139,4 @@ if __name__ == '__main__':
     mj_minutes_lst = get_minutes_mj()
     mj_points_lst = get_points_mj()
     lebron_points_lst = get_points_lebron()
+    lebron_fgm_lst = get_fgm_lebron()
