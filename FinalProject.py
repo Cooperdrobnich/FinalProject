@@ -21,7 +21,8 @@ def get_season_lebron():
             season = row.find_all('th',{'data-stat':'season'})
             for i in season:
                 year = i.find('a').text
-                print(year)
+                seasons_lebron.append(year)
+    return seasons_lebron
 
 def get_season_mj():
     urls = ['https://www.basketball-reference.com/players/j/jordami01.html']
@@ -34,8 +35,8 @@ def get_season_mj():
             season = row.find_all('th',{'data-stat':'season'})
             for i in season:
                 year = i.find('a').text
-                print(year)
-                
+                seasons_mj.append(year)
+    return seasons_mj
 
 
 def create_database(db):
