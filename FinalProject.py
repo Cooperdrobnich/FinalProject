@@ -49,6 +49,18 @@ def get_minutes_lebron():
             minutes_lebron.append(age[0].text)
     return minutes_lebron
 
+def get_points_lebron():
+    urls = ['https://www.basketball-reference.com/players/j/jamesle01.html']
+    points_lebron = []
+    for url in urls:
+        soup = BeautifulSoup(requests.get(url).text, 'html.parser')
+        table = soup.find('table', {'id':'totals'})
+        rows = table.find_all('tr')
+        for row in rows[1:19]:
+            points = row.find_all('td', {'data-stat':'pts'})
+            points_lebron.append(points[0].text)
+    return points_lebron
+
 #=================MJ FUNCTIONS=================#
 
 def get_season_mj():
@@ -58,7 +70,7 @@ def get_season_mj():
         soup = BeautifulSoup(requests.get(url).text, 'html.parser')
         table = soup.find('table', {'id':'totals'})
         rows = table.find_all('tr')
-        for row in rows[1:15]:
+        for row in rows[1:16]:
             season = row.find_all('th',{'data-stat':'season'})
             for i in season:
                 year = i.find('a').text
@@ -72,7 +84,7 @@ def get_age_mj():
         soup = BeautifulSoup(requests.get(url).text, 'html.parser')
         table = soup.find('table', {'id':'totals'})
         rows = table.find_all('tr')
-        for row in rows[1:15]:
+        for row in rows[1:16]:
             age = row.find_all('td', {'data-stat':'age'})
             age_mj.append(age[0].text)
     return age_mj
@@ -84,10 +96,22 @@ def get_minutes_mj():
         soup = BeautifulSoup(requests.get(url).text, 'html.parser')
         table = soup.find('table', {'id':'totals'})
         rows = table.find_all('tr')
-        for row in rows[1:15]:
+        for row in rows[1:16]:
             age = row.find_all('td', {'data-stat':'mp'})
             minutes_mj.append(age[0].text)
     return minutes_mj
+
+def get_points_mj():
+    urls = ['https://www.basketball-reference.com/players/j/jordami01.html']
+    points_mj = []
+    for url in urls:
+        soup = BeautifulSoup(requests.get(url).text, 'html.parser')
+        table = soup.find('table', {'id':'totals'})
+        rows = table.find_all('tr')
+        for row in rows[1:16]:
+            points = row.find_all('td', {'data-stat':'pts'})
+            points_mj.append(points[0].text)
+    return points_mj
 
 def create_database(db):
     path = os.path.dirname(os.path.abspath(__file__))
@@ -102,3 +126,5 @@ if __name__ == '__main__':
     mj_age_lst = get_age_mj()
     lebron_minutes_lst = get_minutes_lebron()
     mj_minutes_lst = get_minutes_mj()
+    mj_points_lst = get_points_mj()
+    lebron_points_lst = get_points_lebron()
