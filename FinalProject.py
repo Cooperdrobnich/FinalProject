@@ -50,6 +50,18 @@ def get_age_lebron():
             seasons_lebron.append(age[0].text)
     return seasons_lebron
 
+def get_age_mj():
+    urls = ['https://www.basketball-reference.com/players/j/jamesle01.html']
+    seasons_mj = []
+    for url in urls:
+        soup = BeautifulSoup(requests.get(url).text, 'html.parser')
+        table = soup.find('table', {'id':'totals'})
+        rows = table.find_all('tr')
+        for row in rows[1:15]:
+            age = row.find_all('td', {'data-stat':'age'})
+            seasons_mj.append(age[0].text)
+    return seasons_mj
+
 def create_database(db):
     path = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(path+'/'+db)
