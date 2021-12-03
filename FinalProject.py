@@ -72,3 +72,4 @@ if __name__ == '__main__':
     lebron_season_lst = get_season_lebron()
     mj_season_lst = get_season_mj()
     lebron_age_lst = get_age_lebron()
+    mj_age_lst = get_age_mj()
