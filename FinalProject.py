@@ -150,6 +150,18 @@ def create_database(db):
     cur = conn.cursor()
     return cur, conn
 
+def setUpLebronTable(cur, conn):
+    seasons = get_season_lebron()
+    age = get_age_lebron()
+    minutes = get_minutes_lebron()
+    points = get_points_lebron()
+    fgm = get_fgm_lebron()
+    cur.execute("DROP TABLE IF EXISTS Lebron")
+    cur.execute("CREATE TABLE Lebron ('Season' TEXT PRIMARY KEY, 'Age' INTEGER, 'Minutes' INTEGER, 'Points' INTEGER, 'AVG_FGM' FLOAT)")
+    for i in range(len(seasons)):
+        cur.execute("INSERT INTO Lebron (Season,Age,Minutes,Points,AVG_FGM) VALUES (?,?,?,?,?)",(seasons[i],age[i],minutes[i],points[i],fgm[i]))
+    conn.commit()
+
 if __name__ == '__main__':
     lebron_season_lst = get_season_lebron()
     mj_season_lst = get_season_mj()
@@ -161,3 +173,6 @@ if __name__ == '__main__':
     lebron_points_lst = get_points_lebron()
     lebron_fgm_lst = get_fgm_lebron()
     mj_fgm_lst = get_fgm_mj()
+
+    cur,conn = create_database('LebronAndMJStats.db')
+    lebronTable = setUpLebronTable(cur,conn)
