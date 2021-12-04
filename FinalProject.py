@@ -74,23 +74,6 @@ def get_fgm_lebron():
             fgm_lebron.append(fgm)
     return fgm_lebron
 
-def get_fga_lebron():
-    count = 2003
-    fga_lebron = []
-    for num in range(10):
-        url = f'https://www.balldontlie.io/api/v1/season_averages?season={count}&player_ids[]=237'
-        response = requests.get(url)
-        data = response.json()
-        count += 1
-        print(data)
-        try:
-            for i in data:
-                fga = data[i][0]['fga']
-                fga_lebron.append(fga)
-        except:
-            continue
-    return fga_lebron
-
 
 #=================MJ FUNCTIONS=================#
 
@@ -160,21 +143,6 @@ def get_fgm_mj():
             continue
     return fgm_mj
 
-def get_fga_mj():
-    count = 1984
-    fga_mj = []
-    for num in range(20):
-        url = f'https://www.balldontlie.io/api/v1/season_averages?season={count}&player_ids[]=2931'
-        response = requests.get(url)
-        data = response.json()
-        count += 1
-        try:
-            for i in data:
-                fga = data[i][0]['fga']
-                fga_mj.append(fga)
-        except:
-            continue
-    return fga_mj
 
 def create_database(db):
     path = os.path.dirname(os.path.abspath(__file__))
@@ -193,5 +161,3 @@ if __name__ == '__main__':
     lebron_points_lst = get_points_lebron()
     lebron_fgm_lst = get_fgm_lebron()
     mj_fgm_lst = get_fgm_mj()
-    mj_fga_lst = get_fga_mj()
-    lebron_fga_lst = get_fga_lebron()
