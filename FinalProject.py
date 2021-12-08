@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import time
 
 """This file will create a database called 'LebronAndMJStats.db' with all statistics from MJ and Lebron's """
-
+'''
 #=================LEBRON FUNCTIONS=================#
 def get_season_lebron():
     urls = ['https://www.basketball-reference.com/players/j/jamesle01.html']
@@ -74,10 +74,15 @@ def get_fgm_lebron():
             fgm = data[i][0]['fgm']
             fgm_lebron.append(fgm)
     return fgm_lebron
-
+'''
 
 #=================MJ FUNCTIONS=================#
 
+
+
+
+
+'''
 def get_season_mj():
     urls = ['https://www.basketball-reference.com/players/j/jordami01.html']
     seasons_mj = []
@@ -175,7 +180,7 @@ def setUpJordanTable(cur, conn):
         cur.execute("INSERT INTO Jordan (id,Season,Age,Minutes,Points,AVG_FGM) VALUES (?,?,?,?,?,?)",(i,seasons[i],age[i],minutes[i],points[i],fgm[i]))
     conn.commit()
 
-
+'''
 
 if __name__ == '__main__':
     lebron_season_lst = get_season_lebron()
