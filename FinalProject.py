@@ -61,6 +61,18 @@ def get_points_lebron():
             points = row.find_all('td', {'data-stat':'pts'})
             points_lebron.append(points[0].text)
     return points_lebron
+    
+def get_points_lebron():
+    urls = ['https://www.basketball-reference.com/players/j/jamesle01/gamelog-playoffs-advanced']
+    points_lebron = []
+    for url in urls:
+        soup = BeautifulSoup(requests.get(url).text, 'html.parser')
+        table = soup.find('table', {'id':'totals'})
+        rows = table.find_all('tr')
+        for row in rows[1:16]:
+            points = row.find_all('td', {'data-stat':'pts'})
+            points_lebron.append(points[0].text)
+    return points_lebron
 
 def get_fgm_lebron():
     count = 2003
@@ -77,7 +89,6 @@ def get_fgm_lebron():
 
 
 #=================MJ FUNCTIONS=================#
-
 
 
 
