@@ -7,6 +7,7 @@ import json
 import os
 import requests
 from bs4 import BeautifulSoup
+import time
 
 """This file will create a database called 'LebronAndMJStats.db' with all statistics from MJ and Lebron's """
 
@@ -18,7 +19,7 @@ def get_season_lebron():
         soup = BeautifulSoup(requests.get(url).text, 'html.parser')
         table = soup.find('table', {'id':'totals'})
         rows = table.find_all('tr')
-        for row in rows[1:19]:
+        for row in rows[1:16]:
             season = row.find_all('th',{'data-stat':'season'})
             for i in season:
                 year = i.find('a').text
@@ -32,7 +33,7 @@ def get_age_lebron():
         soup = BeautifulSoup(requests.get(url).text, 'html.parser')
         table = soup.find('table', {'id':'totals'})
         rows = table.find_all('tr')
-        for row in rows[1:19]:
+        for row in rows[1:16]:
             age = row.find_all('td', {'data-stat':'age'})
             age_lebron.append(age[0].text)
     return age_lebron
@@ -44,7 +45,7 @@ def get_minutes_lebron():
         soup = BeautifulSoup(requests.get(url).text, 'html.parser')
         table = soup.find('table', {'id':'totals'})
         rows = table.find_all('tr')
-        for row in rows[1:19]:
+        for row in rows[1:16]:
             age = row.find_all('td', {'data-stat':'mp'})
             minutes_lebron.append(age[0].text)
     return minutes_lebron
@@ -56,7 +57,7 @@ def get_points_lebron():
         soup = BeautifulSoup(requests.get(url).text, 'html.parser')
         table = soup.find('table', {'id':'totals'})
         rows = table.find_all('tr')
-        for row in rows[1:19]:
+        for row in rows[1:16]:
             points = row.find_all('td', {'data-stat':'pts'})
             points_lebron.append(points[0].text)
     return points_lebron
@@ -64,7 +65,7 @@ def get_points_lebron():
 def get_fgm_lebron():
     count = 2003
     fgm_lebron = []
-    for num in range(18):
+    for num in range(15):
         url = f'https://www.balldontlie.io/api/v1/season_averages?season={count}&player_ids[]=237'
         response = requests.get(url)
         data = response.json()
@@ -157,10 +158,24 @@ def setUpLebronTable(cur, conn):
     points = get_points_lebron()
     fgm = get_fgm_lebron()
     cur.execute("DROP TABLE IF EXISTS Lebron")
-    cur.execute("CREATE TABLE Lebron ('Season' TEXT PRIMARY KEY, 'Age' INTEGER, 'Minutes' INTEGER, 'Points' INTEGER, 'AVG_FGM' FLOAT)")
+    cur.execute("CREATE TABLE Lebron ('id' INTEGER PRIMARY KEY, 'Season' TEXT, 'Age' INTEGER, 'Minutes' INTEGER, 'Points' INTEGER, 'AVG_FGM' FLOAT)")
     for i in range(len(seasons)):
-        cur.execute("INSERT INTO Lebron (Season,Age,Minutes,Points,AVG_FGM) VALUES (?,?,?,?,?)",(seasons[i],age[i],minutes[i],points[i],fgm[i]))
+        cur.execute("INSERT INTO Lebron (id,Season,Age,Minutes,Points,AVG_FGM) VALUES (?,?,?,?,?,?)",(i,seasons[i],age[i],minutes[i],points[i],fgm[i]))
     conn.commit()
+
+def setUpJordanTable(cur, conn):
+    seasons = get_season_mj()
+    age = get_age_mj()
+    minutes = get_minutes_mj()
+    points = get_points_mj()
+    fgm = get_fgm_mj()
+    cur.execute("DROP TABLE IF EXISTS Jordan")
+    cur.execute("CREATE TABLE Jordan ('id' INTEGER PRIMARY KEY, 'Season' TEXT, 'Age' INTEGER, 'Minutes' INTEGER, 'Points' INTEGER, 'AVG_FGM' FLOAT)")
+    for i in range(len(seasons)):
+        cur.execute("INSERT INTO Jordan (id,Season,Age,Minutes,Points,AVG_FGM) VALUES (?,?,?,?,?,?)",(i,seasons[i],age[i],minutes[i],points[i],fgm[i]))
+    conn.commit()
+
+
 
 if __name__ == '__main__':
     lebron_season_lst = get_season_lebron()
@@ -176,3 +191,4 @@ if __name__ == '__main__':
 
     cur,conn = create_database('LebronAndMJStats.db')
     lebronTable = setUpLebronTable(cur,conn)
+    jordanTable = setUpJordanTable(cur,conn)
