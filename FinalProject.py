@@ -11,8 +11,7 @@ import time
 
 """This file will create a database called 'Top100nbaStats.db' with all statistics from the top 100 players in the NBA for the 2021 - 2022 season """
 
-#=================LEBRON FUNCTIONS=================#
-def get_season_lebron():
+def get_player_names():
     url = 'https://www.basketball-reference.com/leagues/NBA_2022_per_game.html'
     seasons_lebron = []
     soup = BeautifulSoup(requests.get(url).text, 'html.parser')
@@ -52,6 +51,6 @@ def create_database(db):
 
 
 if __name__ == '__main__':
-    lebron_season_lst = get_season_lebron()
+    lebron_season_lst = get_player_names()
 
-    cur,conn = create_database('LebronAndMJStats.db')
+    cur,conn = create_database('Top100nbaStats.db')
