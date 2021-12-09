@@ -96,6 +96,20 @@ def create_database(db):
     cur = conn.cursor()
     return cur, conn
 
+def create_table(cur,conn):
+    player = get_player_names()
+    team = get_team()
+    mp = get_minutes_played()
+    pts = get_points()
+    turnover = get_turnovers()
+    cur.execute("DROP TABLE IF EXISTS PlayerStats")
+    cur.execute("""CREATE TABLE PlayerStats 
+    ('name' TEXT PRIMARY KEY, 'team' TEXT,'minutes_played' INTEGER, 'points' INTEGER, 'turnovers' INTEGER)""")
+    for i in range(len(player)):
+        cur.execute('''INSERT INTO PlayerStats 
+        (name, team, minutes_played, points, turnovers) VALUES (?,?,?,?,?)''', (player[i], team[i], mp[i], pts[i], turnover[i]))
+    conn.commit()
+
 
 
 if __name__ == '__main__':
@@ -108,3 +122,4 @@ if __name__ == '__main__':
 
 
     cur,conn = create_database('Top100nbaStats.db')
+    table = create_table(cur,conn)
