@@ -79,7 +79,19 @@ def get_turnovers():
     return turnovers
 
 def create_data_dict():
+    player = get_player_names()
+    team = get_team()
+    mp = get_minutes_played()
+    pts = get_points()
+    turnover = get_turnovers()
     data_dict = {}
+    for i in range(len(player)):
+        data_dict[player[i]] = {team[i]:{'minutes_played':mp[i],'points':pts[i],'turnovers':turnover[i]}}
+    print(data_dict)
+            
+        
+
+
 
 def get_id_team():
     id_abbr = {}
@@ -99,19 +111,19 @@ def create_database(db):
     cur = conn.cursor()
     return cur, conn
 
-def create_table(cur,conn):
-    player = get_player_names()
-    team = get_team()
-    mp = get_minutes_played()
-    pts = get_points()
-    turnover = get_turnovers()
-    cur.execute("DROP TABLE IF EXISTS PlayerStats")
-    cur.execute("""CREATE TABLE PlayerStats 
-    ('name' TEXT PRIMARY KEY, 'team' TEXT,'minutes_played' INTEGER, 'points' INTEGER, 'turnovers' INTEGER)""")
-    for i in range(len(player)):
-        cur.execute('''INSERT INTO PlayerStats 
-        (name, team, minutes_played, points, turnovers) VALUES (?,?,?,?,?)''', (player[i], team[i], mp[i], pts[i], turnover[i]))
-    conn.commit()
+# def create_table(cur,conn):
+#     # player = get_player_names()
+#     # team = get_team()
+#     # mp = get_minutes_played()
+#     # pts = get_points()
+#     # turnover = get_turnovers()
+#     # cur.execute("DROP TABLE IF EXISTS PlayerStats")
+#     # cur.execute("""CREATE TABLE PlayerStats 
+#     # ('name' TEXT PRIMARY KEY, 'team' TEXT,'minutes_played' INTEGER, 'points' INTEGER, 'turnovers' INTEGER)""")
+#     # for i in range(len(player)):
+#     #     cur.execute('''INSERT INTO PlayerStats 
+#     #     (name, team, minutes_played, points, turnovers) VALUES (?,?,?,?,?)''', (player[i], team[i], mp[i], pts[i], turnover[i]))
+#     # conn.commit()
 
 
 
@@ -122,6 +134,7 @@ if __name__ == '__main__':
     pts_lst = get_points()
     turnover_lst = get_turnovers()
     id_abbr_dict = get_id_team()
+    data_dict = create_data_dict()
 
 
     cur,conn = create_database('Top100nbaStats.db')
