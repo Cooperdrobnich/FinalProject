@@ -78,6 +78,9 @@ def get_turnovers():
             continue
     return turnovers
 
+def create_data_dict():
+    data_dict = {}
+
 def get_id_team():
     id_abbr = {}
     url ='https://www.balldontlie.io/api/v1/teams'
