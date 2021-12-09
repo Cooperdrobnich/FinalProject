@@ -88,7 +88,7 @@ def create_data_dict():
     for i in range(len(player)):
         data_dict[player[i]] = {'team':team[i], 'minutes_played':mp[i],'points':pts[i],'turnovers':turnover[i]}
     sorted_dict = list(sorted(data_dict.items(), key = lambda x:x[1]['points'], reverse=True))
-    print(sorted_dict[:100])
+    return(sorted_dict[:100])
     
 
 
