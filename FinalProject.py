@@ -111,14 +111,19 @@ def create_database(db):
     return cur, conn
 
 def create_table(data,cur,conn):
-    
-    cur.execute("DROP TABLE IF EXISTS PlayerStats")
-    cur.execute("""CREATE TABLE PlayerStats 
+    cur.execute("""CREATE TABLE IF NOT EXISTS PlayerStats 
     ('name' TEXT PRIMARY KEY, 'team' TEXT,'minutes_played' INTEGER, 'points' INTEGER, 'turnovers' INTEGER)""")
-    i = 0
-    while i < len(data):
-        next = i + 25
-        for i in range(i,next):
+    
+    
+def insert_data(cur,conn,data):
+    # get a list of player who are in the table store in variable
+    cur.execute("SELECT name FROM PlayerStats")
+    lst = []
+    for i in cur:
+        lst.append(i[0])
+    count = 0
+    for i in range(len(data)):
+        if data[i][0] not in lst:
             name = data[i][0]
             team = data[i][1]['team']
             minutes = data[i][1]['minutes_played']
@@ -126,8 +131,12 @@ def create_table(data,cur,conn):
             turnovers = data[i][1]['turnovers']
             cur.execute('''INSERT INTO PlayerStats 
             (name, team, minutes_played, points, turnovers) VALUES (?,?,?,?,?)''',(name,team,minutes,points,turnovers))
-        i = next
+            count += 1
+            if count == 24:
+                break
     conn.commit()
+    
+    
 
 if __name__ == '__main__':
     player_lst = get_player_names()
@@ -140,4 +149,5 @@ if __name__ == '__main__':
 
 
     cur,conn = create_database('Top100nbaStats.db')
-    table = create_table(create_data_dict(),cur,conn)
+    table = create_table(data_dict,cur,conn)
+    insert = insert_data(cur, conn, data_dict)
