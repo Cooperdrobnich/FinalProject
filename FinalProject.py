@@ -118,19 +118,15 @@ def create_table(data,cur,conn):
     i = 0
     while i < len(data):
         next = i + 25
-        insert_data(cur, conn, data[i:next])
+        for i in range(i,next):
+            name = data[i][0]
+            team = data[i][1]['team']
+            minutes = data[i][1]['minutes_played']
+            points = data[i][1]['points']
+            turnovers = data[i][1]['turnovers']
+            cur.execute('''INSERT INTO PlayerStats 
+            (name, team, minutes_played, points, turnovers) VALUES (?,?,?,?,?)''',(name,team,minutes,points,turnovers))
         i = next
-    conn.commit()
-
-def insert_data(cur, conn, data):
-    for i in range(len(data)):
-        name = data[i][0]
-        team = data[i][1]['team']
-        minutes = data[i][1]['minutes_played']
-        points = data[i][1]['points']
-        turnovers = data[i][1]['turnovers']
-        cur.execute('''INSERT INTO PlayerStats 
-        (name, team, minutes_played, points, turnovers) VALUES (?,?,?,?,?)''',(name,team,minutes,points,turnovers))
     conn.commit()
 
 if __name__ == '__main__':
@@ -145,4 +141,3 @@ if __name__ == '__main__':
 
     cur,conn = create_database('Top100nbaStats.db')
     table = create_table(create_data_dict(),cur,conn)
-    insert = insert_data(cur, conn, create_data_dict())
