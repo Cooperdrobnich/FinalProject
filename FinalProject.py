@@ -78,19 +78,12 @@ def get_turnovers():
             continue
     return turnovers
 
-def create_data_dict():
-    player = get_player_names()
-    team = get_team()
-    mp = get_minutes_played()
-    pts = get_points()
-    turnover = get_turnovers()
+def create_data_dict(player,team,mp,pts,turnover):
     data_dict = {}
     for i in range(len(player)):
         data_dict[player[i]] = {'team':team[i], 'minutes_played':mp[i],'points':pts[i],'turnovers':turnover[i]}
     sorted_dict = list(sorted(data_dict.items(), key = lambda x:x[1]['points'], reverse=True))
     return(sorted_dict[:100])
-    
-
 
 def get_id_team():
     id_abbr = {}
@@ -110,13 +103,13 @@ def create_database(db):
     cur = conn.cursor()
     return cur, conn
 
-def create_table(data,cur,conn):
+def create_table(cur,conn):
     cur.execute("""CREATE TABLE IF NOT EXISTS PlayerStats 
     ('name' TEXT PRIMARY KEY, 'team' TEXT,'minutes_played' INTEGER, 'points' INTEGER, 'turnovers' INTEGER)""")
+    cur.execute("""CREATE TABLE IF NOT EXISTS TeamDivision ('team' TEXT PRIMARY KEY, 'division' TEXT)""")
+    conn.commit()
     
-    
-def insert_data(cur,conn,data):
-    # get a list of player who are in the table store in variable
+def insert_player_data(cur,conn,data):
     cur.execute("SELECT name FROM PlayerStats")
     lst = []
     for i in cur:
@@ -132,11 +125,26 @@ def insert_data(cur,conn,data):
             cur.execute('''INSERT INTO PlayerStats 
             (name, team, minutes_played, points, turnovers) VALUES (?,?,?,?,?)''',(name,team,minutes,points,turnovers))
             count += 1
-            if count == 24:
+            if count == 25:
                 break
     conn.commit()
-    
-    
+
+def insert_team_data(data,cur,conn):
+    cur.execute("SELECT team FROM TeamDivision")
+    lst = []
+    for i in cur:
+        lst.append(i[0])
+    count = 0
+    for i in data:
+        if i not in lst:
+            team = i
+            division = data[i]
+            cur.execute('''INSERT INTO TeamDivision
+            (team, division) VALUES (?,?)''',(team,division))
+            count += 1
+            if count == 25:
+                break
+    conn.commit()
 
 if __name__ == '__main__':
     player_lst = get_player_names()
@@ -145,9 +153,9 @@ if __name__ == '__main__':
     pts_lst = get_points()
     turnover_lst = get_turnovers()
     id_abbr_dict = get_id_team()
-    data_dict = create_data_dict()
-
+    data_dict = create_data_dict(player_lst,team_lst,mp_lst,pts_lst,turnover_lst)
 
     cur,conn = create_database('Top100nbaStats.db')
-    table = create_table(data_dict,cur,conn)
-    insert = insert_data(cur, conn, data_dict)
+    table = create_table(cur,conn)
+    insert_player = insert_player_data(cur, conn, data_dict)
+    insert_team = insert_team_data(id_abbr_dict,cur,conn)
