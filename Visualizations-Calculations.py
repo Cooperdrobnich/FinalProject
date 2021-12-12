@@ -27,8 +27,14 @@ def points_minutes_viz(cur,conn):
     eff_min = []
     eff_pts.append(sorted_efficiency[0][0])
     eff_min.append(sorted_efficiency[0][1])
+    top25pts = []
+    top25min = []
+    for i in sorted_efficiency[1:25]:
+        top25pts.append(i[0])
+        top25min.append(i[1])
     plt.scatter(minutes_lst,points_lst)
-    plt.scatter(eff_min,eff_pts,color="red")
+    plt.scatter(eff_min,eff_pts,color="black")
+    plt.scatter(top25min,top25pts,color="green")
     plt.xlabel("Total Minutes Played")
     plt.ylabel("Total Points")
     plt.title("Efficiency of Top 100 Players in NBA Season 21 - 22")
