@@ -126,6 +126,8 @@ def division_viz(dict):
     plt.show()
     print("The division with the most top 100 players in the NBA is the " + sorted_dict[0][0] + " division with " + str(sorted_dict[0][1]) + " players.")
 
+def write_calculations(cur,conn):
+    print()
 
 if __name__ == "__main__":
     cur,conn = get_database('Top100nbaStats.db')
