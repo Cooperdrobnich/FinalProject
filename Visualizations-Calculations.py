@@ -16,11 +16,19 @@ def get_database(db_filename):
 def points_minutes_viz(cur,conn):
     points_lst = []
     minutes_lst = []
+    efficiency_lst = []
     cur.execute('''SELECT points, minutes_played FROM PlayerStats''')
     for row in cur:
         points_lst.append(row[0])
         minutes_lst.append(row[1])
+        efficiency_lst.append(row)
+    sorted_efficiency = sorted(efficiency_lst, key=lambda t: t[0]/t[1], reverse=True)
+    eff_pts = []
+    eff_min = []
+    eff_pts.append(sorted_efficiency[0][0])
+    eff_min.append(sorted_efficiency[0][1])
     plt.scatter(minutes_lst,points_lst)
+    plt.scatter(eff_min,eff_pts,color="red")
     plt.xlabel("Total Minutes Played")
     plt.ylabel("Total Points")
     plt.title("Efficiency of Top 100 Players in NBA Season 21 - 22")
