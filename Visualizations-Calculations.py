@@ -67,7 +67,31 @@ def get_highest_turnover_rate(cur,conn):
     highest_turnover_rate = turnover_efficiency[0][0]
     turnover_ratio = turnover_efficiency[0][1] / turnover_efficiency[0][2]
     print("The player with the highest turnover rate in the NBA Top 100 is " + str(highest_turnover_rate) + " turning the ball over " + str(round(turnover_ratio,3)) + " times per minute.")
-    
+
+def get_division_dict(cur,conn):
+    cur.execute('''
+    SELECT TeamDivision.division, COUNT(*)
+    FROM PlayerStats
+    JOIN TeamDivision
+    ON PlayerStats.team = TeamDivision.team
+    GROUP BY TeamDivision.division''')
+    return(dict(cur))
+
+def division_viz(dict):
+    sorted_dict = sorted(dict.items(),key = lambda x:x[1], reverse=True)
+    divisionlst = []
+    numlst = []
+    for i in dict:
+        divisionlst.append(i)
+        numlst.append(dict[i])
+    plt.bar(divisionlst, numlst, align='center', alpha=1, width=0.8)
+    plt.xticks(divisionlst, rotation = 90)
+    plt.ylabel('Number of Players')
+    plt.xlabel('Divisions')
+    plt.title('Number of Top 100 Players for Each Division')
+    plt.tight_layout()
+    plt.show()
+    print("The division with the most top 100 players in the NBA is the " + sorted_dict[0][0] + " division with " + str(sorted_dict[0][1]) + " players.")
 
 
 if __name__ == "__main__":
@@ -76,3 +100,5 @@ if __name__ == "__main__":
     viz2 = turnovers_minutes_viz(cur, conn)
     calc1 = get_most_efficient(cur,conn)
     calc2 = get_highest_turnover_rate(cur,conn)
+    div_dict = get_division_dict(cur,conn)
+    viz3andcalc3 = division_viz(div_dict)
