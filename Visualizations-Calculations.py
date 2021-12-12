@@ -12,13 +12,6 @@ def get_database(db_filename):
     conn = sqlite3.connect(path+'/'+db_filename)
     cur = conn.cursor()
     return cur,conn
-    # cur.execute('''
-    # SELECT TeamDivision.division, COUNT(*)
-    # FROM PlayerStats
-    # JOIN TeamDivision
-    # ON PlayerStats.team = TeamDivision.team
-    # GROUP BY TeamDivision.division''')
-    # print(dict(cur))
 
 def points_minutes_viz(cur,conn):
     points_lst = []
