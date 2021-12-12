@@ -29,12 +29,18 @@ def points_minutes_viz(cur,conn):
     eff_min.append(sorted_efficiency[0][1])
     top25pts = []
     top25min = []
+    middle50_pts = []
+    middle50_min = []
     for i in sorted_efficiency[1:25]:
         top25pts.append(i[0])
         top25min.append(i[1])
-    plt.scatter(minutes_lst,points_lst)
-    plt.scatter(eff_min,eff_pts,color="black")
+    for i in sorted_efficiency[25:75]:
+        middle50_pts.append(i[0])
+        middle50_min.append(i[1])
+    plt.scatter(minutes_lst,points_lst, color='red')
+    plt.scatter(eff_min,eff_pts,color="blue")
     plt.scatter(top25min,top25pts,color="green")
+    plt.scatter(middle50_min, middle50_pts, color="orange")
     plt.xlabel("Total Minutes Played")
     plt.ylabel("Total Points")
     plt.title("Efficiency of Top 100 Players in NBA Season 21 - 22")
@@ -44,11 +50,31 @@ def points_minutes_viz(cur,conn):
 def turnovers_minutes_viz(cur,conn):
     turnovers_lst = []
     minutes_lst = []
+    most_turnovers_lst = []
     cur.execute('''SELECT turnovers, minutes_played FROM PlayerStats''')
     for row in cur:
         turnovers_lst.append(row[0])
         minutes_lst.append(row[1])
-    plt.scatter(minutes_lst,turnovers_lst)
+        most_turnovers_lst.append(row)
+    sorted_turnovers = sorted(most_turnovers_lst, key=lambda t: t[0]/t[1], reverse=True)
+    most_turns = []
+    most_turns_mins = []
+    most_turns.append(sorted_turnovers[0][0])
+    most_turns_mins.append(sorted_turnovers[0][1])
+    top25 = []
+    top25_min = []
+    middle50 = []
+    middle50_min = []
+    for i in sorted_turnovers[1:25]:
+        top25.append(i[0])
+        top25_min.append(i[1])
+    for i in sorted_turnovers[25:75]:
+        middle50.append(i[0])
+        middle50_min.append(i[1])
+    plt.scatter(minutes_lst,turnovers_lst, color="red")
+    plt.scatter(most_turns_mins, most_turns, color="blue")
+    plt.scatter(top25_min,top25,color="green")
+    plt.scatter(middle50_min, middle50, color="orange")
     plt.xlabel("Total Minutes Played")
     plt.ylabel("Total Turnovers")
     plt.title("Turnover Rate of Top 100 Players in NBA Season 21 - 22")
