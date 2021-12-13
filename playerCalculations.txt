@@ -1,18 +1,18 @@
-The most efficient player in the NBA Top 100 is Giannis Antetokounmpo scoring 0.847 points per minute. 
+The most efficient player in the NBA Top 100 is Giannis Antetokounmpo scoring 0.838 points per minute. 
 The player with the highest turnover rate in the NBA Top 100 is James Harden turning the ball over 0.138 times per minute. 
-The division with the most top 100 players in the NBA is the Central division with 20 players. 
+The division with the most top 100 players in the NBA is the Central division with 19 players. 
 =======================================================================================
 -------------1-------------
-Giannis Antetokounmpo scores about 0.847 points per minute 
+Giannis Antetokounmpo scores about 0.838 points per minute 
 James Harden turns the ball over about 0.138 times per minute 
 -------------2-------------
-Nikola Jokić scores about 0.805 points per minute 
+Kevin Durant scores about 0.806 points per minute 
 Luka Dončić turns the ball over about 0.131 times per minute 
 -------------3-------------
-Stephen Curry scores about 0.791 points per minute 
+Nikola Jokić scores about 0.805 points per minute 
 Russell Westbrook turns the ball over about 0.129 times per minute 
 -------------4-------------
-Kevin Durant scores about 0.785 points per minute 
+Stephen Curry scores about 0.791 points per minute 
 Cade Cunningham turns the ball over about 0.12 times per minute 
 -------------5-------------
 Trae Young scores about 0.772 points per minute 
@@ -25,42 +25,42 @@ DeMar DeRozan scores about 0.748 points per minute
 Darius Garland turns the ball over about 0.115 times per minute 
 -------------8-------------
 Zach LaVine scores about 0.742 points per minute 
-Nikola Jokić turns the ball over about 0.103 times per minute 
+Karl-Anthony Towns turns the ball over about 0.103 times per minute 
 -------------9-------------
 Ja Morant scores about 0.74 points per minute 
-Karl-Anthony Towns turns the ball over about 0.101 times per minute 
+Nikola Jokić turns the ball over about 0.103 times per minute 
 -------------10-------------
 Joel Embiid scores about 0.738 points per minute 
-Giannis Antetokounmpo turns the ball over about 0.101 times per minute 
+LeBron James turns the ball over about 0.102 times per minute 
 -------------11-------------
 Luka Dončić scores about 0.732 points per minute 
-Khris Middleton turns the ball over about 0.099 times per minute 
+Giannis Antetokounmpo turns the ball over about 0.101 times per minute 
 -------------12-------------
 Devin Booker scores about 0.722 points per minute 
-LeBron James turns the ball over about 0.098 times per minute 
+Khris Middleton turns the ball over about 0.099 times per minute 
 -------------13-------------
-LeBron James scores about 0.708 points per minute 
+LeBron James scores about 0.714 points per minute 
 LaMelo Ball turns the ball over about 0.098 times per minute 
 -------------14-------------
 Jayson Tatum scores about 0.706 points per minute 
 Bradley Beal turns the ball over about 0.097 times per minute 
 -------------15-------------
-Karl-Anthony Towns scores about 0.699 points per minute 
+Karl-Anthony Towns scores about 0.697 points per minute 
 Ja Morant turns the ball over about 0.097 times per minute 
 -------------16-------------
 Paul George scores about 0.696 points per minute 
-Tyler Herro turns the ball over about 0.095 times per minute 
+Julius Randle turns the ball over about 0.096 times per minute 
 -------------17-------------
 Jimmy Butler scores about 0.677 points per minute 
-Ricky Rubio turns the ball over about 0.095 times per minute 
+Tyler Herro turns the ball over about 0.095 times per minute 
 -------------18-------------
 Anthony Davis scores about 0.67 points per minute 
-Julius Randle turns the ball over about 0.093 times per minute 
+Ricky Rubio turns the ball over about 0.095 times per minute 
 -------------19-------------
-Kristaps Porziņģis scores about 0.654 points per minute 
+Brandon Ingram scores about 0.651 points per minute 
 Donovan Mitchell turns the ball over about 0.092 times per minute 
 -------------20-------------
-Brandon Ingram scores about 0.648 points per minute 
+Kristaps Porziņģis scores about 0.642 points per minute 
 Anthony Edwards turns the ball over about 0.092 times per minute 
 -------------21-------------
 Bradley Beal scores about 0.626 points per minute 
@@ -69,244 +69,241 @@ Stephen Curry turns the ball over about 0.091 times per minute
 Tyler Herro scores about 0.622 points per minute 
 Kyle Lowry turns the ball over about 0.091 times per minute 
 -------------23-------------
-Shai Gilgeous-Alexander scores about 0.613 points per minute 
+Shai Gilgeous-Alexander scores about 0.61 points per minute 
 Bam Adebayo turns the ball over about 0.09 times per minute 
 -------------24-------------
 Jerami Grant scores about 0.605 points per minute 
 Domantas Sabonis turns the ball over about 0.088 times per minute 
 -------------25-------------
 Andrew Wiggins scores about 0.605 points per minute 
-Brandon Ingram turns the ball over about 0.087 times per minute 
+Cole Anthony turns the ball over about 0.087 times per minute 
 -------------26-------------
 Jaren Jackson Jr. scores about 0.604 points per minute 
-Cole Anthony turns the ball over about 0.087 times per minute 
+Kevin Durant turns the ball over about 0.087 times per minute 
 -------------27-------------
-De'Aaron Fox scores about 0.603 points per minute 
-Kevin Durant turns the ball over about 0.085 times per minute 
+Damian Lillard scores about 0.603 points per minute 
+Devin Booker turns the ball over about 0.084 times per minute 
 -------------28-------------
-Jonas Valančiūnas scores about 0.603 points per minute 
-Jrue Holiday turns the ball over about 0.085 times per minute 
+De'Aaron Fox scores about 0.603 points per minute 
+Jusuf Nurkić turns the ball over about 0.084 times per minute 
 -------------29-------------
 LaMelo Ball scores about 0.602 points per minute 
-Devin Booker turns the ball over about 0.084 times per minute 
+Brandon Ingram turns the ball over about 0.084 times per minute 
 -------------30-------------
-Damian Lillard scores about 0.601 points per minute 
-Fred VanVleet turns the ball over about 0.083 times per minute 
--------------31-------------
 Cole Anthony scores about 0.6 points per minute 
-Eric Gordon turns the ball over about 0.082 times per minute 
+Jrue Holiday turns the ball over about 0.083 times per minute 
+-------------31-------------
+Jonas Valančiūnas scores about 0.599 points per minute 
+Fred VanVleet turns the ball over about 0.083 times per minute 
 -------------32-------------
+Anthony Edwards scores about 0.598 points per minute 
+Eric Gordon turns the ball over about 0.082 times per minute 
+-------------33-------------
 Jordan Poole scores about 0.593 points per minute 
 Joel Embiid turns the ball over about 0.082 times per minute 
--------------33-------------
-LaMarcus Aldridge scores about 0.591 points per minute 
-D'Angelo Russell turns the ball over about 0.082 times per minute 
 -------------34-------------
-Anthony Edwards scores about 0.591 points per minute 
+LaMarcus Aldridge scores about 0.592 points per minute 
 De'Aaron Fox turns the ball over about 0.081 times per minute 
 -------------35-------------
-Jordan Clarkson scores about 0.588 points per minute 
-Jusuf Nurkić turns the ball over about 0.081 times per minute 
+Khris Middleton scores about 0.591 points per minute 
+D'Angelo Russell turns the ball over about 0.08 times per minute 
 -------------36-------------
-CJ McCollum scores about 0.583 points per minute 
+Jordan Clarkson scores about 0.588 points per minute 
 Jordan Poole turns the ball over about 0.08 times per minute 
 -------------37-------------
-Khris Middleton scores about 0.582 points per minute 
+CJ McCollum scores about 0.583 points per minute 
 Dennis Schröder turns the ball over about 0.077 times per minute 
 -------------38-------------
-D'Angelo Russell scores about 0.582 points per minute 
+D'Angelo Russell scores about 0.578 points per minute 
 Jayson Tatum turns the ball over about 0.077 times per minute 
 -------------39-------------
 Kelly Oubre Jr. scores about 0.578 points per minute 
 Zach LaVine turns the ball over about 0.076 times per minute 
 -------------40-------------
 James Harden scores about 0.575 points per minute 
-Dejounte Murray turns the ball over about 0.075 times per minute 
+Damian Lillard turns the ball over about 0.076 times per minute 
 -------------41-------------
-Norman Powell scores about 0.574 points per minute 
+Montrezl Harrell scores about 0.572 points per minute 
 Chris Paul turns the ball over about 0.073 times per minute 
 -------------42-------------
-Montrezl Harrell scores about 0.572 points per minute 
-Damian Lillard turns the ball over about 0.073 times per minute 
--------------43-------------
 Bam Adebayo scores about 0.569 points per minute 
+Dejounte Murray turns the ball over about 0.073 times per minute 
+-------------43-------------
+Norman Powell scores about 0.565 points per minute 
 Lonzo Ball turns the ball over about 0.071 times per minute 
 -------------44-------------
 Desmond Bane scores about 0.564 points per minute 
-Shai Gilgeous-Alexander turns the ball over about 0.069 times per minute 
+Jonas Valančiūnas turns the ball over about 0.068 times per minute 
 -------------45-------------
 Bojan Bogdanović scores about 0.563 points per minute 
-Jonas Valančiūnas turns the ball over about 0.066 times per minute 
+Shai Gilgeous-Alexander turns the ball over about 0.068 times per minute 
 -------------46-------------
 Malcolm Brogdon scores about 0.561 points per minute 
 Malcolm Brogdon turns the ball over about 0.066 times per minute 
 -------------47-------------
-Julius Randle scores about 0.553 points per minute 
+Buddy Hield scores about 0.553 points per minute 
 Jerami Grant turns the ball over about 0.064 times per minute 
 -------------48-------------
-Buddy Hield scores about 0.553 points per minute 
+Darius Garland scores about 0.552 points per minute 
 Mike Conley turns the ball over about 0.064 times per minute 
 -------------49-------------
-Darius Garland scores about 0.552 points per minute 
+Tobias Harris scores about 0.549 points per minute 
 Reggie Jackson turns the ball over about 0.063 times per minute 
 -------------50-------------
-Caris LeVert scores about 0.552 points per minute 
+Miles Bridges scores about 0.548 points per minute 
 Kyle Kuzma turns the ball over about 0.062 times per minute 
 -------------51-------------
-Tobias Harris scores about 0.549 points per minute 
+Bobby Portis scores about 0.545 points per minute 
 Christian Wood turns the ball over about 0.06 times per minute 
 -------------52-------------
-Miles Bridges scores about 0.548 points per minute 
+Russell Westbrook scores about 0.542 points per minute 
 Bobby Portis turns the ball over about 0.059 times per minute 
 -------------53-------------
-Russell Westbrook scores about 0.542 points per minute 
+Julius Randle scores about 0.541 points per minute 
 Harrison Barnes turns the ball over about 0.059 times per minute 
 -------------54-------------
-Bobby Portis scores about 0.541 points per minute 
+Terry Rozier scores about 0.538 points per minute 
 Jarrett Allen turns the ball over about 0.059 times per minute 
 -------------55-------------
-Terry Rozier scores about 0.538 points per minute 
+Domantas Sabonis scores about 0.534 points per minute 
 DeMar DeRozan turns the ball over about 0.058 times per minute 
 -------------56-------------
-Jusuf Nurkić scores about 0.538 points per minute 
+Jusuf Nurkić scores about 0.533 points per minute 
 Jimmy Butler turns the ball over about 0.058 times per minute 
 -------------57-------------
-Dejounte Murray scores about 0.536 points per minute 
+Harrison Barnes scores about 0.532 points per minute 
 Anthony Davis turns the ball over about 0.057 times per minute 
 -------------58-------------
-Domantas Sabonis scores about 0.534 points per minute 
+Luguentz Dort scores about 0.527 points per minute 
 Gordon Hayward turns the ball over about 0.057 times per minute 
 -------------59-------------
-Harrison Barnes scores about 0.532 points per minute 
+Dejounte Murray scores about 0.526 points per minute 
 Jaren Jackson Jr. turns the ball over about 0.056 times per minute 
 -------------60-------------
 John Collins scores about 0.525 points per minute 
 Buddy Hield turns the ball over about 0.056 times per minute 
 -------------61-------------
-Luguentz Dort scores about 0.525 points per minute 
+Reggie Jackson scores about 0.524 points per minute 
 Rudy Gobert turns the ball over about 0.056 times per minute 
 -------------62-------------
-Reggie Jackson scores about 0.524 points per minute 
+Dennis Schröder scores about 0.524 points per minute 
 Chris Duarte turns the ball over about 0.055 times per minute 
 -------------63-------------
-Dennis Schröder scores about 0.524 points per minute 
+Christian Wood scores about 0.522 points per minute 
 Scottie Barnes turns the ball over about 0.054 times per minute 
 -------------64-------------
-Christian Wood scores about 0.522 points per minute 
+Jarrett Allen scores about 0.52 points per minute 
 CJ McCollum turns the ball over about 0.054 times per minute 
 -------------65-------------
-Jarrett Allen scores about 0.52 points per minute 
-Devonte' Graham turns the ball over about 0.054 times per minute 
--------------66-------------
 Fred VanVleet scores about 0.516 points per minute 
 Will Barton turns the ball over about 0.054 times per minute 
--------------67-------------
+-------------66-------------
 Gordon Hayward scores about 0.509 points per minute 
 RJ Barrett turns the ball over about 0.054 times per minute 
+-------------67-------------
+Jalen Brunson scores about 0.494 points per minute 
+Devonte' Graham turns the ball over about 0.053 times per minute 
 -------------68-------------
-Jrue Holiday scores about 0.496 points per minute 
-Caris LeVert turns the ball over about 0.053 times per minute 
--------------69-------------
 Cade Cunningham scores about 0.491 points per minute 
 Miles Bridges turns the ball over about 0.053 times per minute 
--------------70-------------
+-------------69-------------
 Mike Conley scores about 0.491 points per minute 
 Andrew Wiggins turns the ball over about 0.053 times per minute 
--------------71-------------
+-------------70-------------
 Gary Trent Jr. scores about 0.491 points per minute 
-Desmond Bane turns the ball over about 0.051 times per minute 
--------------72-------------
-Jalen Brunson scores about 0.489 points per minute 
+Nickeil Alexander-Walker turns the ball over about 0.052 times per minute 
+-------------71-------------
+Jrue Holiday scores about 0.49 points per minute 
 Wendell Carter Jr. turns the ball over about 0.051 times per minute 
+-------------72-------------
+Carmelo Anthony scores about 0.488 points per minute 
+Desmond Bane turns the ball over about 0.051 times per minute 
 -------------73-------------
-Carmelo Anthony scores about 0.487 points per minute 
-Nickeil Alexander-Walker turns the ball over about 0.05 times per minute 
--------------74-------------
 Will Barton scores about 0.484 points per minute 
+Luguentz Dort turns the ball over about 0.05 times per minute 
+-------------74-------------
+Eric Gordon scores about 0.482 points per minute 
 Montrezl Harrell turns the ball over about 0.05 times per minute 
 -------------75-------------
-Eric Gordon scores about 0.482 points per minute 
+RJ Barrett scores about 0.482 points per minute 
 Jordan Clarkson turns the ball over about 0.05 times per minute 
 -------------76-------------
-RJ Barrett scores about 0.482 points per minute 
-Luguentz Dort turns the ball over about 0.049 times per minute 
--------------77-------------
 Nickeil Alexander-Walker scores about 0.48 points per minute 
+Jalen Brunson turns the ball over about 0.049 times per minute 
+-------------77-------------
+Rudy Gobert scores about 0.477 points per minute 
 Seth Curry turns the ball over about 0.049 times per minute 
 -------------78-------------
-Rudy Gobert scores about 0.477 points per minute 
+Tyrese Maxey scores about 0.476 points per minute 
 Bojan Bogdanović turns the ball over about 0.049 times per minute 
 -------------79-------------
-Tyrese Maxey scores about 0.476 points per minute 
-Jalen Brunson turns the ball over about 0.049 times per minute 
--------------80-------------
-Keldon Johnson scores about 0.469 points per minute 
+Keldon Johnson scores about 0.473 points per minute 
 Evan Mobley turns the ball over about 0.048 times per minute 
--------------81-------------
+-------------80-------------
 Seth Curry scores about 0.467 points per minute 
-Evan Fournier turns the ball over about 0.048 times per minute 
--------------82-------------
+Derrick White turns the ball over about 0.047 times per minute 
+-------------81-------------
 Ricky Rubio scores about 0.456 points per minute 
-Derrick White turns the ball over about 0.046 times per minute 
--------------83-------------
-Grayson Allen scores about 0.455 points per minute 
+Evan Fournier turns the ball over about 0.046 times per minute 
+-------------82-------------
+Grayson Allen scores about 0.453 points per minute 
 Aaron Gordon turns the ball over about 0.046 times per minute 
+-------------83-------------
+Chris Duarte scores about 0.452 points per minute 
+Norman Powell turns the ball over about 0.045 times per minute 
 -------------84-------------
-Tim Hardaway Jr. scores about 0.454 points per minute 
+Tim Hardaway Jr. scores about 0.449 points per minute 
 Tobias Harris turns the ball over about 0.045 times per minute 
 -------------85-------------
-Chris Duarte scores about 0.452 points per minute 
-Kristaps Porziņģis turns the ball over about 0.044 times per minute 
--------------86-------------
-Evan Fournier scores about 0.45 points per minute 
+Franz Wagner scores about 0.446 points per minute 
 Myles Turner turns the ball over about 0.044 times per minute 
+-------------86-------------
+Derrick White scores about 0.446 points per minute 
+Kristaps Porziņģis turns the ball over about 0.044 times per minute 
 -------------87-------------
 Chris Paul scores about 0.446 points per minute 
-Keldon Johnson turns the ball over about 0.043 times per minute 
+Monte Morris turns the ball over about 0.043 times per minute 
 -------------88-------------
 Myles Turner scores about 0.445 points per minute 
-Monte Morris turns the ball over about 0.043 times per minute 
+Keldon Johnson turns the ball over about 0.043 times per minute 
 -------------89-------------
-Franz Wagner scores about 0.444 points per minute 
-Norman Powell turns the ball over about 0.042 times per minute 
--------------90-------------
-Wendell Carter Jr. scores about 0.442 points per minute 
+Wendell Carter Jr. scores about 0.444 points per minute 
 Terry Rozier turns the ball over about 0.042 times per minute 
+-------------90-------------
+Evan Fournier scores about 0.442 points per minute 
+Franz Wagner turns the ball over about 0.041 times per minute 
 -------------91-------------
 Aaron Gordon scores about 0.435 points per minute 
-Franz Wagner turns the ball over about 0.039 times per minute 
--------------92-------------
-Derrick White scores about 0.435 points per minute 
 Tyrese Maxey turns the ball over about 0.037 times per minute 
--------------93-------------
-Devonte' Graham scores about 0.434 points per minute 
+-------------92-------------
+Patty Mills scores about 0.435 points per minute 
 Kelly Oubre Jr. turns the ball over about 0.037 times per minute 
+-------------93-------------
+Devonte' Graham scores about 0.426 points per minute 
+LaMarcus Aldridge turns the ball over about 0.032 times per minute 
 -------------94-------------
-Patty Mills scores about 0.431 points per minute 
+Pat Connaughton scores about 0.421 points per minute 
 John Collins turns the ball over about 0.032 times per minute 
 -------------95-------------
-Pat Connaughton scores about 0.421 points per minute 
-Carmelo Anthony turns the ball over about 0.031 times per minute 
--------------96-------------
 Scottie Barnes scores about 0.419 points per minute 
-Patty Mills turns the ball over about 0.028 times per minute 
--------------97-------------
+Carmelo Anthony turns the ball over about 0.03 times per minute 
+-------------96-------------
 Evan Mobley scores about 0.416 points per minute 
-Pat Connaughton turns the ball over about 0.027 times per minute 
--------------98-------------
+Patty Mills turns the ball over about 0.029 times per minute 
+-------------97-------------
 Monte Morris scores about 0.408 points per minute 
-LaMarcus Aldridge turns the ball over about 0.027 times per minute 
--------------99-------------
-Kyle Kuzma scores about 0.408 points per minute 
 Gary Trent Jr. turns the ball over about 0.026 times per minute 
--------------100-------------
+-------------98-------------
+Kyle Kuzma scores about 0.408 points per minute 
+Pat Connaughton turns the ball over about 0.026 times per minute 
+-------------99-------------
 Kyle Lowry scores about 0.395 points per minute 
 Grayson Allen turns the ball over about 0.023 times per minute 
--------------101-------------
+-------------100-------------
 Lonzo Ball scores about 0.36 points per minute 
 Tim Hardaway Jr. turns the ball over about 0.02 times per minute 
 =======================================================================================
-The Central division has 20 players in the NBA top 100 
+The Central division has 19 players in the NBA top 100 
 The Northwest division has 18 players in the NBA top 100 
 The Southwest division has 16 players in the NBA top 100 
 The Atlantic division has 12 players in the NBA top 100 
