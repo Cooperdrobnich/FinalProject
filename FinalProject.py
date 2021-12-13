@@ -220,3 +220,4 @@ if __name__ == '__main__':
     table = create_table(cur,conn)
     insert_player = insert_player_data(cur, conn, data_dict)
     insert_team = insert_team_data(id_abbr_dict,cur,conn)
+    

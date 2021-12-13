@@ -86,9 +86,9 @@ def turnovers_minutes_viz(cur,conn):
     for i in sorted_turnovers[25:75]:
         middle50.append(i[0])
         middle50_min.append(i[1])
-    plt.scatter(minutes_lst,turnovers_lst, color="red")
+    plt.scatter(minutes_lst,turnovers_lst, color="green")
     plt.scatter(most_turns_mins, most_turns, color="blue")
-    plt.scatter(top25_min,top25,color="green")
+    plt.scatter(top25_min,top25,color="red")
     plt.scatter(middle50_min, middle50, color="orange")
     plt.xlabel("Total Minutes Played")
     plt.ylabel("Total Turnovers")
