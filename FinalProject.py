@@ -102,13 +102,30 @@ def get_turnovers():
             continue
     return turnovers
 
+'''
+This function takes in a list of players, team abbreviations, minutes_played, total points,
+and total turnovers and adds them to a dictionary called data_dict with player being the key and
+a dictionary as the value. Within the value dictionary it has the players specific stat titles as 
+the keys and the stat as the value. 
+Ex. {'Precious Achiuwa': {'team': 'TOR', 'minutes_played': 556, 'points': 168, 'turnovers': 23}
+The function then sorts the list from highest to lowest total points scored by players. Finally,
+it returns a dictionary of the top 100 NBA players stats by points.
+'''
 def create_data_dict(player,team,mp,pts,turnover):
     data_dict = {}
     for i in range(len(player)):
+        #formats the dictionary into the correct format
         data_dict[player[i]] = {'team':team[i], 'minutes_played':mp[i],'points':pts[i],'turnovers':turnover[i]}
+    #sorts dictionary from highest to lowest total points
     sorted_dict = list(sorted(data_dict.items(), key = lambda x:x[1]['points'], reverse=True))
     return(sorted_dict[:100])
 
+'''
+This function uses the 'balldontlie' API to create a dictionary with the team abbreviation
+as the key and the correlating division for that specific team as the value. This function
+returns a dictionary in this format...
+Ex. {'ATL': 'Southeast', 'BOS': 'Atlantic', 'BKN': 'Atlantic', 'CHA': 'Southeast', ... }
+'''
 def get_id_team():
     id_abbr = {}
     url ='https://www.balldontlie.io/api/v1/teams'
@@ -121,25 +138,37 @@ def get_id_team():
             id_abbr[abbr] = division
     return id_abbr
 
+'''This function creates a database called 'Top100nbaStats.db' '''
 def create_database(db):
     path = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(path+'/'+db)
     cur = conn.cursor()
     return cur, conn
 
+'''
+This function creates two tables within 'Top100nbaStats.db', 'PlayerStats' and 'TeamDivision'.
+The PlayerStats table has column headers name, team, minutes_played, points, and turnovers. The
+TeamDivision table has coliumn headers team and division.
+'''
 def create_table(cur,conn):
     cur.execute("""CREATE TABLE IF NOT EXISTS PlayerStats 
     ('name' TEXT PRIMARY KEY, 'team' TEXT,'minutes_played' INTEGER, 'points' INTEGER, 'turnovers' INTEGER)""")
     cur.execute("""CREATE TABLE IF NOT EXISTS TeamDivision ('team' TEXT PRIMARY KEY, 'division' TEXT)""")
     conn.commit()
-    
+
+'''
+This function takes in a dictionary from the create_data_dict() function and inserts the stats
+for 25 unique players into the PlayerStats table. 
+'''    
 def insert_player_data(cur,conn,data):
     cur.execute("SELECT name FROM PlayerStats")
     lst = []
     for i in cur:
+        #appends existing player names from PlayerStats into lst
         lst.append(i[0])
     count = 0
     for i in range(len(data)):
+        #if the name from the data_dict is not in lst it inserts it into the database table
         if data[i][0] not in lst:
             name = data[i][0]
             team = data[i][1]['team']
@@ -149,23 +178,31 @@ def insert_player_data(cur,conn,data):
             cur.execute('''INSERT INTO PlayerStats 
             (name, team, minutes_played, points, turnovers) VALUES (?,?,?,?,?)''',(name,team,minutes,points,turnovers))
             count += 1
+            #limits the number of players added to the database to 25
             if count == 25:
                 break
     conn.commit()
 
+'''
+This function takes in a dictionary from the get_id_team() function and inserts the division
+for 25 unique teams into the TeamDivision table. 
+''' 
 def insert_team_data(data,cur,conn):
     cur.execute("SELECT team FROM TeamDivision")
     lst = []
     for i in cur:
+        #appends existing team abbreviations names from TeamDivision into lst
         lst.append(i[0])
     count = 0
     for i in data:
+        #if the team abbreviation from the data_dict is not in lst it inserts it into the database table
         if i not in lst:
             team = i
             division = data[i]
             cur.execute('''INSERT INTO TeamDivision
             (team, division) VALUES (?,?)''',(team,division))
             count += 1
+            #limits the number of players added to the database to 25
             if count == 25:
                 break
     conn.commit()
