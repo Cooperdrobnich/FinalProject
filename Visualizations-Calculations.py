@@ -188,6 +188,7 @@ def write_calculations(eff,turn,divs):
         f.write("=======================================================================================\n")
         for div in divs:
             f.writelines("The " + div[0]+ " division has " + str(div[1])+" players in the NBA top 100 \n")
+        f.close()
 
 if __name__ == "__main__":
     cur,conn = get_database('Top100nbaStats.db')
