@@ -149,7 +149,7 @@ def get_division_dict(cur,conn):
 
 '''
 This function creates a bar plot with division on the x-axis and
-number of players on the y-axis. It rturns a dictionary that is sorted from largest
+number of players on the y-axis. It returns a dictionary that is sorted from largest
 to smallest number of players for the divisions. It also prints the division with
 the most players in the NBA top 100.
 '''
