@@ -90,6 +90,7 @@ def get_most_efficient(cur,conn):
     most_efficent_player = sorted_efficiency[0][0]
     most_efficent_ratio = sorted_efficiency[0][1] / sorted_efficiency[0][2]
     print("The most efficient player in the NBA Top 100 is " + str(most_efficent_player) + " scoring " + str(round(most_efficent_ratio,3)) + " points per minute.")
+    return sorted_efficiency
 
 def get_highest_turnover_rate(cur,conn):
     cur.execute('''SELECT name, turnovers, minutes_played FROM PlayerStats''')
@@ -100,6 +101,7 @@ def get_highest_turnover_rate(cur,conn):
     highest_turnover_rate = turnover_efficiency[0][0]
     turnover_ratio = turnover_efficiency[0][1] / turnover_efficiency[0][2]
     print("The player with the highest turnover rate in the NBA Top 100 is " + str(highest_turnover_rate) + " turning the ball over " + str(round(turnover_ratio,3)) + " times per minute.")
+    return turnover_efficiency
 
 def get_division_dict(cur,conn):
     cur.execute('''
@@ -125,9 +127,23 @@ def division_viz(dict):
     plt.tight_layout()
     plt.show()
     print("The division with the most top 100 players in the NBA is the " + sorted_dict[0][0] + " division with " + str(sorted_dict[0][1]) + " players.")
+    return sorted_dict
 
-def write_calculations(cur,conn):
-    print()
+def write_calculations(eff,turn,divs):
+    count = 1
+    with open('playerCalculations.txt','w') as f:
+        f.write("The most efficient player in the NBA Top 100 is " + str(eff[0][0]) + " scoring " + str(round((eff[0][1]/eff[0][2]),3)) + " points per minute. \n")
+        f.write("The player with the highest turnover rate in the NBA Top 100 is " + str(turn[0][0]) + " turning the ball over " + str(round((turn[0][1]/turn[0][2]),3)) + " times per minute. \n")
+        f.write("The division with the most top 100 players in the NBA is the " + divs[0][0] + " division with " + str(divs[0][1]) + " players. \n")
+        f.write("=======================================================================================\n")
+        for i in range(len(eff)):
+            f.writelines("-------------"+str(count)+"-------------\n")
+            f.writelines(eff[i][0]+" scores about " + str(round((eff[i][1]/eff[i][2]),3)) + " points per minute \n")
+            f.writelines(turn[i][0]+" turns the ball over about " + str(round((turn[i][1]/turn[i][2]),3)) + " times per minute \n")
+            count += 1
+        f.write("=======================================================================================\n")
+        for div in divs:
+            f.writelines("The " + div[0]+ " division has " + str(div[1])+" players in the NBA top 100 \n")
 
 if __name__ == "__main__":
     cur,conn = get_database('Top100nbaStats.db')
@@ -137,3 +153,5 @@ if __name__ == "__main__":
     calc2 = get_highest_turnover_rate(cur,conn)
     div_dict = get_division_dict(cur,conn)
     viz3andcalc3 = division_viz(div_dict)
+
+    write = write_calculations(calc1,calc2,viz3andcalc3)
