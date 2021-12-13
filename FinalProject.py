@@ -148,7 +148,7 @@ def create_database(db):
 '''
 This function creates two tables within 'Top100nbaStats.db', 'PlayerStats' and 'TeamDivision'.
 The PlayerStats table has column headers name, team, minutes_played, points, and turnovers. The
-TeamDivision table has coliumn headers team and division.
+TeamDivision table has column headers team and division.
 '''
 def create_table(cur,conn):
     cur.execute("""CREATE TABLE IF NOT EXISTS PlayerStats 
