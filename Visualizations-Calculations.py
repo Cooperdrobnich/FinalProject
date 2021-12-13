@@ -7,12 +7,19 @@ import matplotlib.pyplot as plt
 import os
 import numpy as np
 
+'''This function connects to the Top100nbaStats database'''
 def get_database(db_filename):
     path = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(path+'/'+db_filename)
     cur = conn.cursor()
     return cur,conn
 
+'''
+This function creates a scatter plot with minutes played on the x-axis and
+total points on the y-axis. It plots the most efficient player (the player with the highest
+points per minute) in blue, the top 25 players in green, the middle 50 players in orange,
+and the bottom 25 players in red. 
+'''
 def points_minutes_viz(cur,conn):
     points_lst = []
     minutes_lst = []
@@ -22,6 +29,7 @@ def points_minutes_viz(cur,conn):
         points_lst.append(row[0])
         minutes_lst.append(row[1])
         efficiency_lst.append(row)
+    #sorts players from largest to smallest by (points/minutes played)
     sorted_efficiency = sorted(efficiency_lst, key=lambda t: t[0]/t[1], reverse=True)
     eff_pts = []
     eff_min = []
@@ -47,6 +55,12 @@ def points_minutes_viz(cur,conn):
     plt.tight_layout()
     plt.show()
 
+'''
+This function creates a scatter plot with minutes played on the x-axis and
+total turnovers on the y-axis. It plots the player with the largest turnover ratio 
+in blue, the top 25 turnover ratio players in green, the middle 50 turnover ratio players 
+in orange, and the bottom 25 trunover ratio players in red. 
+'''
 def turnovers_minutes_viz(cur,conn):
     turnovers_lst = []
     minutes_lst = []
@@ -56,6 +70,7 @@ def turnovers_minutes_viz(cur,conn):
         turnovers_lst.append(row[0])
         minutes_lst.append(row[1])
         most_turnovers_lst.append(row)
+    #sorts players from largest to smallest by (turnovers/minutes played)
     sorted_turnovers = sorted(most_turnovers_lst, key=lambda t: t[0]/t[1], reverse=True)
     most_turns = []
     most_turns_mins = []
@@ -81,6 +96,12 @@ def turnovers_minutes_viz(cur,conn):
     plt.tight_layout()
     plt.show()
 
+'''
+This function gets the player with the highest points per minute from the database table,
+PlayerStats by sorting all of the players into a list. This function returns the sorted
+efficiency list with the format [(player1, points, minutes), (player2, points, minutes), ...].
+This function also prints the player with the highest efficiency.
+'''
 def get_most_efficient(cur,conn):
     cur.execute('''SELECT name, points, minutes_played FROM PlayerStats''')
     efficiency_lst = []
@@ -92,6 +113,12 @@ def get_most_efficient(cur,conn):
     print("The most efficient player in the NBA Top 100 is " + str(most_efficent_player) + " scoring " + str(round(most_efficent_ratio,3)) + " points per minute.")
     return sorted_efficiency
 
+'''
+This function gets the player with the highest turnovers per minute from the database table,
+PlayerStats by sorting all of the players into a list. This function returns the sorted
+turnover ratio list with the format [(player1, turnovers, minutes), (player2, turnovers, minutes), ...].
+This function also prints the player with the highest turnover ratio.
+'''
 def get_highest_turnover_rate(cur,conn):
     cur.execute('''SELECT name, turnovers, minutes_played FROM PlayerStats''')
     turnover_lst = []
@@ -103,6 +130,12 @@ def get_highest_turnover_rate(cur,conn):
     print("The player with the highest turnover rate in the NBA Top 100 is " + str(highest_turnover_rate) + " turning the ball over " + str(round(turnover_ratio,3)) + " times per minute.")
     return turnover_efficiency
 
+'''
+This function joins PlayerStats and TeamDivision on PlayerStats.team = TeamDivision.team.
+It gets the count of players in the top 100 for each division and returns a dictionary with 
+the division as the key and the number of players as the value.
+Ex. {'Atlantic': 12, 'Central': 20, 'Northwest': 18, 'Pacific': 12, 'Southeast': 12, 'Southwest': 16}
+'''
 def get_division_dict(cur,conn):
     cur.execute('''
     SELECT TeamDivision.division, COUNT(*)
@@ -112,6 +145,12 @@ def get_division_dict(cur,conn):
     GROUP BY TeamDivision.division''')
     return(dict(cur))
 
+'''
+This function creates a bar plot with division on the x-axis and
+number of players on the y-axis. It rturns a dictionary that is sorted from largest
+to smallest number of players for the divisions. It also prints the division with
+the most players in the NBA top 100.
+'''
 def division_viz(dict):
     sorted_dict = sorted(dict.items(),key = lambda x:x[1], reverse=True)
     divisionlst = []
@@ -119,7 +158,7 @@ def division_viz(dict):
     for i in dict:
         divisionlst.append(i)
         numlst.append(dict[i])
-    plt.bar(divisionlst, numlst, align='center', alpha=1, width=0.8)
+    plt.bar(divisionlst, numlst, align='center', alpha=1, width=0.8, color='blue')
     plt.xticks(divisionlst, rotation = 90)
     plt.ylabel('Number of Players')
     plt.xlabel('Divisions')
@@ -129,6 +168,11 @@ def division_viz(dict):
     print("The division with the most top 100 players in the NBA is the " + sorted_dict[0][0] + " division with " + str(sorted_dict[0][1]) + " players.")
     return sorted_dict
 
+'''
+This function writes all of the calculations for each player/division in a text file called 'playerCalculations.txt'.
+The text file has the ranks for the players with the top points per minute and turnovers per minute, as well as, 
+the number of players in the top 100 for each division.
+'''
 def write_calculations(eff,turn,divs):
     count = 1
     with open('playerCalculations.txt','w') as f:
