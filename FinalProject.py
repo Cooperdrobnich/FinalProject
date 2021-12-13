@@ -47,7 +47,7 @@ def get_team():
 
 '''
 This function uses beautiful soup to parse through the urls table data. This function then
-returns a list of the total minutes played corelated to the players from the first function 
+returns a list of the total minutes played correlated to the players from the first function 
 in the current 21'-22' NBA season.
 '''
 def get_minutes_played():
