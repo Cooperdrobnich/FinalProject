@@ -85,7 +85,7 @@ def get_points():
 
 '''
 This function uses beautiful soup to parse through the urls table data. This function then
-returns a list of the total number of turnovers corelated to the players from the first function 
+returns a list of the total number of turnovers correlated to the players from the first function 
 in the current 21'-22' NBA season.
 '''
 def get_turnovers():
