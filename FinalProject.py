@@ -8,8 +8,12 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-"""This file will create a database called 'Top100nbaStats.db' with all statistics from the top 100 players in the NBA for the 2021 - 2022 season """
+"""This file will create a database called 'Top100nbaStats.db' with all statistics from the top 100 scoring players in the NBA for the 2021 - 2022 season """
 
+'''
+This function uses beautiful soup to parse through the urls table data. This function then
+returns a list of all the players in the current 21'-22' NBA season.
+'''
 def get_player_names():
     url = 'https://www.basketball-reference.com/leagues/NBA_2022_totals.html'
     players = []
@@ -23,6 +27,11 @@ def get_player_names():
             players.append(name)
     return players
 
+'''
+This function uses beautiful soup to parse through the urls table data. This function then
+returns a list of all the team abbreviations corelated to the players from the function 
+above in the current 21'-22' NBA season.
+'''
 def get_team():
     url = 'https://www.basketball-reference.com/leagues/NBA_2022_totals.html'
     team_abbr = []
@@ -36,6 +45,11 @@ def get_team():
             team_abbr.append(team_id)
     return team_abbr
 
+'''
+This function uses beautiful soup to parse through the urls table data. This function then
+returns a list of the total minutes played corelated to the players from the first function 
+in the current 21'-22' NBA season.
+'''
 def get_minutes_played():
     url = 'https://www.basketball-reference.com/leagues/NBA_2022_totals.html'
     minutes_played = []
@@ -50,6 +64,11 @@ def get_minutes_played():
             continue
     return minutes_played
 
+'''
+This function uses beautiful soup to parse through the urls table data. This function then
+returns a list of the total number of points corelated to the players from the first function 
+in the current 21'-22' NBA season.
+'''
 def get_points():
     url = 'https://www.basketball-reference.com/leagues/NBA_2022_totals.html'
     total_points = []
@@ -64,6 +83,11 @@ def get_points():
             continue
     return total_points
 
+'''
+This function uses beautiful soup to parse through the urls table data. This function then
+returns a list of the total number of turnovers corelated to the players from the first function 
+in the current 21'-22' NBA season.
+'''
 def get_turnovers():
     url = 'https://www.basketball-reference.com/leagues/NBA_2022_totals.html'
     turnovers = []
