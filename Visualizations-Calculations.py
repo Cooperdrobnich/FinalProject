@@ -58,13 +58,10 @@ def points_minutes_viz(cur,conn):
 '''
 This function creates a scatter plot with minutes played on the x-axis and
 total turnovers on the y-axis. It plots the player with the largest turnover ratio 
-<<<<<<< HEAD
 in blue, the top 25 turnover ratio players in green, the middle 50 turnover ratio players 
 in orange, and the bottom 25 turnover ratio players in red. 
-=======
 in blue, the top 25 turnover ratio players in red, the middle 50 turnover ratio players 
 in orange, and the bottom 25 turnover ratio players in green. 
->>>>>>> 0d308bda26c719e401881688d1e009bde266d9b5
 '''
 def turnovers_minutes_viz(cur,conn):
     turnovers_lst = []
