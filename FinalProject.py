@@ -29,7 +29,7 @@ def get_player_names():
 
 '''
 This function uses beautiful soup to parse through the urls table data. This function then
-returns a list of all the team abbreviations corelated to the players from the function 
+returns a list of all the team abbreviations correlated to the players from the function 
 above in the current 21'-22' NBA season.
 '''
 def get_team():
