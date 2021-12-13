@@ -58,8 +58,13 @@ def points_minutes_viz(cur,conn):
 '''
 This function creates a scatter plot with minutes played on the x-axis and
 total turnovers on the y-axis. It plots the player with the largest turnover ratio 
+<<<<<<< HEAD
 in blue, the top 25 turnover ratio players in green, the middle 50 turnover ratio players 
 in orange, and the bottom 25 turnover ratio players in red. 
+=======
+in blue, the top 25 turnover ratio players in red, the middle 50 turnover ratio players 
+in orange, and the bottom 25 trunover ratio players in green. 
+>>>>>>> 0d308bda26c719e401881688d1e009bde266d9b5
 '''
 def turnovers_minutes_viz(cur,conn):
     turnovers_lst = []
@@ -188,6 +193,7 @@ def write_calculations(eff,turn,divs):
         f.write("=======================================================================================\n")
         for div in divs:
             f.writelines("The " + div[0]+ " division has " + str(div[1])+" players in the NBA top 100 \n")
+        f.close()
 
 if __name__ == "__main__":
     cur,conn = get_database('Top100nbaStats.db')
